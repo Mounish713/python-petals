@@ -22,15 +22,15 @@ pipeline {
         }
          stage('Build environment') {
             steps {
-                sh '''python hello.py
-                    '''
+                sh 'python hello'
+                    
             }
 	 }
 
          stage('Test environment') {
             steps {
-                sh '''python hello
-                    '''
+                sh 'python'
+                    
             }
         }
     
