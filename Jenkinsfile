@@ -16,25 +16,20 @@ pipeline {
          stage('Install') {
             steps {
               container('python') {
-                sh 'pip install'
+                sh 'python --version'
               }
             }
         }
          stage('Build environment') {
             steps {
-                sh '''conda create --yes -n ${BUILD_TAG} python
-                      source activate ${BUILD_TAG} 
-                      pip install -r requirements.txt
+                sh '''python hello.py
                     '''
             }
 	 }
 
          stage('Test environment') {
             steps {
-                sh '''source activate ${BUILD_TAG} 
-                      pip list
-                      which pip
-                      which python
+                sh '''python hello
                     '''
             }
         }
