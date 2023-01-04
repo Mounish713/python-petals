@@ -22,14 +22,14 @@ pipeline {
         }
          stage('Build environment') {
             steps {
-                sh 'python hello'
+                sh 'python install -r pyproject.toml'
                     
             }
 	 }
 
          stage('Test environment') {
             steps {
-                sh 'python'
+                sh ' which python'
                     
             }
         }
