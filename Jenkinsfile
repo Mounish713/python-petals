@@ -20,20 +20,25 @@ pipeline {
               }
             }
         }
-         stage('Build environment') {
+        stage('build') {
             steps {
-                sh 'python install -r pyproject.toml'
-                    
-            }
-	 }
-
-         stage('Test environment') {
-            steps {
-                sh ' which python'
-                    
+              container('python') {
+                sh 'python run build'
+              }
             }
         }
-    
+
+        
+    stage('Test environment') {
+            steps {
+                sh '''source activate ${BUILD_TAG} 
+                      pip list
+                      which pip
+                      which python
+                    '''
+            }
+        }
+    }
         stage(" docker build") {
             steps {
                 container ('python') {
