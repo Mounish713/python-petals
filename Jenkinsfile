@@ -1,9 +1,9 @@
 pipeline {
     agent {
-     node {
+     
       label 'python'
      }
-    }
+    
     environment {
      HARBOR_CREDENTIAL_ID = 'harbor-id'
      REGISTRY = '172.30.102.24:30002'
