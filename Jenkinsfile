@@ -8,9 +8,7 @@ pipeline {
     HARBOR_NAMESPACE = 'library'
     APP_NAME = 'demo-python-lang-app'
     }
-    options {
-        skipStagesAfterUnstable()
-    }
+    
     stages {
         stage('Build') {
             agent {
@@ -23,6 +21,8 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
+    }
+   
        
     
 }
