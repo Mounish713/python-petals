@@ -20,13 +20,27 @@ pipeline {
               }
             }
         }
+	    stage('Setup') { // Install any dependencies you need to perform testing
+      steps {
+        script {
+          sh """
+          pip install -r requirements.txt
+          """
+        }
+      }
+    }
+    stage('Linting') { // Run pylint against your code
+      steps {
+        script {
+          sh """
+          pylint **/*.py
+          """
+        }
+      }
+    }
       
         
-    stage('Test') {
-                    steps {
-                        sh './jenkins/scripts/test.sh'
-                    }
-                }
+    
     
         stage(" docker build") {
             steps {
