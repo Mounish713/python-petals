@@ -38,7 +38,7 @@ pipeline {
                     '''
             }
         }
-    }
+    
         stage(" docker build") {
             steps {
                 container ('python') {
