@@ -22,15 +22,11 @@ pipeline {
         }
       
         
-    stage('Test environment') {
-            steps {
-                sh '''source activate ${BUILD_TAG} 
-                      pip list
-                      which pip
-                      which python
-                    '''
-            }
-        }
+    stage('Test') {
+                    steps {
+                        sh './jenkins/scripts/test.sh'
+                    }
+                }
     
         stage(" docker build") {
             steps {
