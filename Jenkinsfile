@@ -20,14 +20,14 @@ pipeline {
               }
             }
         }
-        stage('build') {
+       stage('Build environment') {
             steps {
-              container('python') {
-                sh 'python run build'
-              }
+                sh '''conda create --yes -n ${BUILD_TAG} python
+                      source activate ${BUILD_TAG} 
+                      pip install -r pyproject.toml
+                    '''
             }
         }
-
         
     stage('Test environment') {
             steps {
