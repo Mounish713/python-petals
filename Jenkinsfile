@@ -23,7 +23,7 @@ pipeline {
               steps {
                   container ('python') {
                    echo 'Build python project'
-                   sh 'python hii.py'
+                   sh 'python hello.py'
                 }
               }
          }
