@@ -22,8 +22,8 @@ pipeline {
 	     stage('Build') {
       steps {
         container ('python') {
-                   echo 'Building python project'
-                   sh 'python hello.py'
+                   echo 'Build python project'
+                   sh 'python hii.py'
                 }
       }
     }
