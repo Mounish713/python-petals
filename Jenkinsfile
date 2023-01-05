@@ -1,7 +1,6 @@
 pipeline {
     agent {
-     
-      label 'python'
+     label 'python'
      }
     
     environment {
@@ -22,10 +21,11 @@ pipeline {
         }
 	    stage('Setup') { // Install any dependencies you need to perform testing
       steps {
+	 container('python')
         script {
-          sh """
-          pip install -r requirements.txt
-          """
+          sh 'pip install -r requirements.txt'
+          
+          
         }
       }
     }
