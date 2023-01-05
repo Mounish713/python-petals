@@ -19,14 +19,14 @@ pipeline {
               }
             }
         }
-	     stage('Build') {
-      steps {
-        container ('python') {
+	  stage('Build') {
+              steps {
+                  container ('python') {
                    echo 'Build python project'
                    sh 'python hii.py'
                 }
-      }
-    }
+              }
+         }
     
       
         
