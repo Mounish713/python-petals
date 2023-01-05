@@ -19,14 +19,12 @@ pipeline {
               }
             }
         }
-	    stage('Setup') { // Install any dependencies you need to perform testing
+	     stage('Build') {
       steps {
-	 container('python')
-        script {
-          sh 'pip install -r .gitignore'
-          
-          
-        }
+        container ('python') {
+                   echo 'Building python project'
+                   sh 'python hello.py'
+                }
       }
     }
     
